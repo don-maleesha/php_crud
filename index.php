@@ -20,12 +20,15 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
 
-        echo "Inserted Successfully.";
+        header("location: read.php"); //linked to read.php
+
     } else {
 
         die("Connection failed " . mysqli_connect_error());
     }
+
 }
+
 ?>
 
 <!DOCTYPE html>

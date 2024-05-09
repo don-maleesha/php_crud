@@ -25,6 +25,7 @@ include "dbconn.php";
                     <th scope="col">Last Name</th>
                     <th scope="col">Email Address</th>
                     <th scope="col">Mobile Number</th>
+                    <th scope="col">Subjects</th>
                     <th scope="col">Operations</th>
                 </tr>
             </thead>
@@ -44,6 +45,7 @@ include "dbconn.php";
                     $lname = $row['lastName'];
                     $email = $row['emailAddress'];
                     $mobile = $row['mobileNumber'];
+                    $subjects = $row['subjects'];
 
                     echo '<tr>
                     <th scope="row">' . $id . '</th>
@@ -51,11 +53,13 @@ include "dbconn.php";
                     <td>' . $lname . '</td>
                     <td>' . $email . '</td>
                     <td>' . $mobile . '</td>
+                    <td>' . $subjects . '</td>
                     <td>
                 <a href="update.php?updateid='.$id.'" class="btn btn-primary">Update</a>
                 <a href="delete.php?deleteid='.$id.'" class="btn btn-danger">Delete</a>
             </td>
                     </tr>';
+                    
                 }
 
                 ?>

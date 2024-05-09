@@ -8,12 +8,15 @@ if (isset($_POST['submit'])) {
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobilenumber'];
+    $subjects = $_POST['subjects']; //this is array form(checkbox)
 
+    //convert array into string(checkbox)
+    $allData = implode(",", $subjects);
     //access the database
 
 
     //insert query
-    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber) VALUES ('$fname', '$lname', '$email', '$mobile') ";
+    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData') ";
 
     //checking
     $result = mysqli_query($conn, $sql);
@@ -59,7 +62,25 @@ if (isset($_POST['submit'])) {
                 <label for="mobile" class="form-label">Mobile Number</label>
                 <input type="mobile" class="form-control" id="mobile" placeholder="Enter your mobile" name="mobilenumber" autocomplete="off">
             </div>
-            <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="chem">Chemistry</label>
+                <input class="form-check-input" type="checkbox" value="Chemistry" id="chem" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="cs0">Physics</label>
+                <input class="form-check-input" type="checkbox" value="Physics" id="cs0" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="cm">Combined Mathematics</label>
+                <input class="form-check-input" type="checkbox" value="Combined Mathematics" id="cm" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="ict">information Communicaton Technology</label>
+                <input class="form-check-input" type="checkbox" value="information Communicaton Technology" id="ict" name="subjects[]">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
+            </div>
         </form>
     </div>
 </body>

@@ -15,6 +15,7 @@ $fname = $row['firstName'];
 $lname = $row['lastName'];
 $email = $row['emailAddress'];
 $mobile = $row['mobileNumber'];
+$subjects = $row['subjects'];
 
 if (isset($_POST['update'])){
 
@@ -22,9 +23,11 @@ if (isset($_POST['update'])){
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobileNumber'];
+    $subjects = $row['subjects'];
+    $allData = implode(",", $subjects);
 
     //update query
-    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile' WHERE id = $id";
+    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile',  subjects = '$allData' WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if($result){
@@ -69,7 +72,25 @@ if (isset($_POST['update'])){
                 <label>mobile Number</label>
                 <input type="mobile" class="form-control" autocomplete="off" name="mobileNumber" value="<?php echo $mobile?>">
             </div>
-            <button type="submit" class="btn btn-primary my-3" name="update">update</button>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="chem">Chemistry</label>
+                <input class="form-check-input" type="checkbox" value="Chemistry" id="chem" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="cs0">Physics</label>
+                <input class="form-check-input" type="checkbox" value="Physics" id="cs0" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="cm">Combined Mathematics</label>
+                <input class="form-check-input" type="checkbox" value="Combined Mathematics" id="cm" name="subjects[]">
+            </div>
+            <div class="form-check-inline my-3">
+                <label class="form-check-label" for="ict">information Communicaton Technology</label>
+                <input class="form-check-input" type="checkbox" value="information Communicaton Technology" id="ict" name="subjects[]">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
+            </div>
         </form>
     </div>
 </body>

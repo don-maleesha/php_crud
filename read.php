@@ -11,8 +11,7 @@ include "dbconn.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Display <Datal></Datal>
-    </title>
+    <title>Display</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -37,6 +36,7 @@ include "dbconn.php";
                 $sql = "SELECT * FROM users";
                 $result = mysqli_query($conn, $sql);
 
+                //fetch all the data inside the database table
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $id = $row['id'];
@@ -52,7 +52,7 @@ include "dbconn.php";
                     <td>' . $email . '</td>
                     <td>' . $mobile . '</td>
                     <td>
-                <a href="#" class="btn btn-primary">Update</a>
+                <a href="update.php?updateid='.$id.'" class="btn btn-primary">Update</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </td>
                     </tr>';

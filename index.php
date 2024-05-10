@@ -10,12 +10,13 @@ if (isset($_POST['submit'])) {
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobilenumber'];
     $subjects = $_POST['subjects']; //this is array form(checkbox)
+    $gender = $_POST['gender'];
 
     //convert array into string(checkbox)
     $allData = implode(",", $subjects);
 
     //insert query
-    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData') ";
+    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects, gender) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData', '$gender') ";
 
     //checking
     $result = mysqli_query($conn, $sql);
@@ -27,7 +28,9 @@ if (isset($_POST['submit'])) {
     } else {
 
         die("Connection failed " . mysqli_connect_error());
+
     }
+    
 }
 
 ?>
@@ -66,8 +69,8 @@ if (isset($_POST['submit'])) {
                 <input class="form-check-input" type="checkbox" value="Chemistry" id="chem" name="subjects[]">
             </div>
             <div class="form-check-inline my-3">
-                <label class="form-check-label" for="cs0">Physics</label>
-                <input class="form-check-input" type="checkbox" value="Physics" id="cs0" name="subjects[]">
+                <label class="form-check-label" for="phy">Physics</label>
+                <input class="form-check-input" type="checkbox" value="Physics" id="phy" name="subjects[]">
             </div>
             <div class="form-check-inline my-3">
                 <label class="form-check-label" for="cm">Combined Mathematics</label>
@@ -77,7 +80,13 @@ if (isset($_POST['submit'])) {
                 <label class="form-check-label" for="ict">information Communicaton Technology</label>
                 <input class="form-check-input" type="checkbox" value="information Communicaton Technology" id="ict" name="subjects[]">
             </div>
+            <div class="my-3">
+                <input type="radio" name="gender" value="male">Male
+            </div>
             <div>
+                <input type="radio" name="gender" value="female">Female
+            </div>
+            <div class="my-3">
                 <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
             </div>
         </form>

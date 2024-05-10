@@ -4,6 +4,7 @@ include "dbconn.php"; //link database connection
 
 if (isset($_POST['submit'])) {
 
+    //access the database
     $fname = $_POST['firstName'];
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
@@ -12,8 +13,6 @@ if (isset($_POST['submit'])) {
 
     //convert array into string(checkbox)
     $allData = implode(",", $subjects);
-    //access the database
-
 
     //insert query
     $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData') ";

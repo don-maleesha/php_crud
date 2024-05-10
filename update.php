@@ -23,7 +23,7 @@ if (isset($_POST['update'])){
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobileNumber'];
-    $subjects = $row['subjects'];
+    $subjects = $_POST['subjects'];
     $allData = implode(",", $subjects);
 
     //update query
@@ -89,7 +89,7 @@ if (isset($_POST['update'])){
                 <input class="form-check-input" type="checkbox" value="information Communicaton Technology" id="ict" name="subjects[]">
             </div>
             <div>
-                <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary my-3" name="update">Update</button>
             </div>
         </form>
     </div>

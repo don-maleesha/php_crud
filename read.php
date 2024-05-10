@@ -45,7 +45,7 @@ include "dbconn.php";
                     $lname = $row['lastName'];
                     $email = $row['emailAddress'];
                     $mobile = $row['mobileNumber'];
-                    $subjects = $row['subjects'];
+                    $subjects = $row['subjects']; //added column for checkbox
 
                     echo '<tr>
                     <th scope="row">' . $id . '</th>

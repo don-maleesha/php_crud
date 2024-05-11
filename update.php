@@ -15,7 +15,8 @@ $fname = $row['firstName'];
 $lname = $row['lastName'];
 $email = $row['emailAddress'];
 $mobile = $row['mobileNumber'];
-$subjects = $row['subjects'];
+$subjects = $row['subjects'];//this is normal
+$gender = $row['gender'];
 
 if (isset($_POST['update'])){
 
@@ -23,11 +24,12 @@ if (isset($_POST['update'])){
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobileNumber'];
-    $subjects = $_POST['subjects'];
+    $subjects = $_POST['subjects']; //this subjects should be from name="subjects[]" --> subjects
     $allData = implode(",", $subjects);
+    $gender = $_POST['gender'];
 
     //update query
-    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile',  subjects = '$allData' WHERE id = $id";
+    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile',  subjects = '$allData', gender = '$gender' WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if($result){
@@ -87,6 +89,12 @@ if (isset($_POST['update'])){
             <div class="form-check-inline my-3">
                 <label class="form-check-label" for="ict">information Communicaton Technology</label>
                 <input class="form-check-input" type="checkbox" value="information Communicaton Technology" id="ict" name="subjects[]">
+            </div>
+            <div class="my-3">
+                <input type="radio" name="gender" value="male">Male
+            </div>
+            <div>
+                <input type="radio" name="gender" value="female">Female
             </div>
             <div>
                 <button type="submit" class="btn btn-primary my-3" name="update">Update</button>

@@ -25,6 +25,7 @@ include "dbconn.php";
                     <th scope="col">Last Name</th>
                     <th scope="col">Email Address</th>
                     <th scope="col">Mobile Number</th>
+                    <th scope="col">Gender</th>
                     <th scope="col">Subjects</th>
                     <th scope="col">Operations</th>
                 </tr>
@@ -45,6 +46,7 @@ include "dbconn.php";
                     $lname = $row['lastName'];
                     $email = $row['emailAddress'];
                     $mobile = $row['mobileNumber'];
+                    $gender = $row['gender'];
                     $subjects = $row['subjects']; //added column for checkbox
 
                     echo '<tr>
@@ -53,6 +55,7 @@ include "dbconn.php";
                     <td>' . $lname . '</td>
                     <td>' . $email . '</td>
                     <td>' . $mobile . '</td>
+                    <td>' . $gender . '</td>
                     <td>' . $subjects . '</td>
                     <td>
                 <a href="update.php?updateid='.$id.'" class="btn btn-primary">Update</a>

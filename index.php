@@ -88,9 +88,9 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="my-3">
                 <select name="digree" id="">
-                    <option value="is">information Systems</option>
-                    <option value="cs">Computer Science</option>
-                    <option value="se">Software Engineerin</option>
+                    <option value="IS">information Systems</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="SE">Software Engineerin</option>
                 </select>
             </div>
             <div class="my-3">

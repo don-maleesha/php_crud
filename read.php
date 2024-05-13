@@ -61,8 +61,8 @@ include "dbconn.php";
                     <td>' . $subjects . '</td>
                     <td>' . $digree . '</td>
                     <td>
-                <a href="update.php?updateid='.$id.'" class="btn btn-primary">Update</a>
-                <a href="delete.php?deleteid='.$id.'" class="btn btn-danger">Delete</a>
+                <a href="update.php?updateid='.$id.'" class="btn btn-primary btn-sm">Update</a>
+                <a href="delete.php?deleteid='.$id.'" class="btn btn-danger btn-sm">Delete</a>
             </td>
                     </tr>';
                     

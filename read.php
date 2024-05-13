@@ -27,6 +27,7 @@ include "dbconn.php";
                     <th scope="col">Mobile Number</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Subjects</th>
+                    <th scope="col">Digree</th>
                     <th scope="col">Operations</th>
                 </tr>
             </thead>
@@ -48,6 +49,7 @@ include "dbconn.php";
                     $mobile = $row['mobileNumber'];
                     $gender = $row['gender'];
                     $subjects = $row['subjects']; //added column for checkbox
+                    $digree = $row['digree'];
 
                     echo '<tr>
                     <th scope="row">' . $id . '</th>
@@ -57,6 +59,7 @@ include "dbconn.php";
                     <td>' . $mobile . '</td>
                     <td>' . $gender . '</td>
                     <td>' . $subjects . '</td>
+                    <td>' . $digree . '</td>
                     <td>
                 <a href="update.php?updateid='.$id.'" class="btn btn-primary">Update</a>
                 <a href="delete.php?deleteid='.$id.'" class="btn btn-danger">Delete</a>

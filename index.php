@@ -11,12 +11,13 @@ if (isset($_POST['submit'])) {
     $mobile = $_POST['mobilenumber'];
     $subjects = $_POST['subjects']; //this is array form(checkbox)
     $gender = $_POST['gender'];
+    $digree = $_POST['digree'];
 
     //convert array into string(checkbox)
     $allData = implode(",", $subjects);
 
     //insert query
-    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects, gender) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData', '$gender') ";
+    $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects, gender, digree) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData', '$gender', '$digree') ";
 
     //checking
     $result = mysqli_query($conn, $sql);
@@ -28,9 +29,8 @@ if (isset($_POST['submit'])) {
     } else {
 
         die("Connection failed " . mysqli_connect_error());
-
+        
     }
-    
 }
 
 ?>
@@ -85,6 +85,13 @@ if (isset($_POST['submit'])) {
             </div>
             <div>
                 <input type="radio" name="gender" value="female">Female
+            </div>
+            <div class="my-3">
+                <select name="digree" id="">
+                    <option value="is">information Systems</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="se">Software Engineerin</option>
+                </select>
             </div>
             <div class="my-3">
                 <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>

@@ -15,8 +15,9 @@ $fname = $row['firstName'];
 $lname = $row['lastName'];
 $email = $row['emailAddress'];
 $mobile = $row['mobileNumber'];
-$subjects = $row['subjects'];//this is normal
 $gender = $row['gender'];
+$subjects = $row['subjects'];//this is normal
+$digree = $row['digree'];
 
 if (isset($_POST['update'])){
 
@@ -24,12 +25,14 @@ if (isset($_POST['update'])){
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobileNumber'];
+    $gender = $_POST['gender'];
     $subjects = $_POST['subjects']; //this subjects should be from name="subjects[]" --> subjects
     $allData = implode(",", $subjects);
-    $gender = $_POST['gender'];
+    $digree = $_POST['digree'];
+    
 
     //update query
-    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile',  subjects = '$allData', gender = '$gender' WHERE id = $id";
+    $sql = "UPDATE users SET firstName = '$fname', lastName= '$lname', emailAddress = '$email', mobileNumber = '$mobile',  subjects = '$allData', gender = '$gender', digree = '$digree' WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if($result){
@@ -95,6 +98,13 @@ if (isset($_POST['update'])){
             </div>
             <div>
                 <input type="radio" name="gender" value="female">Female
+            </div>
+            <div class="my-3">
+                <select name="digree" id="">
+                    <option value="IS">information Systems</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="SE">Software Engineerin</option>
+                </select>
             </div>
             <div>
                 <button type="submit" class="btn btn-primary my-3" name="update">Update</button>

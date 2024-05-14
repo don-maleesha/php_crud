@@ -1,30 +1,33 @@
 <?php
 
-include "dbconn.php"; //link database connection
+// Include the database connection file
+include "dbconn.php";
 
+// Check if the form has been submitted
 if (isset($_POST['submit'])) {
 
-    //access the database
+    // Retrieve form data from the POST request
     $fname = $_POST['firstName'];
     $lname = $_POST['lastName'];
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobilenumber'];
-    $subjects = $_POST['subjects']; //this is array form(checkbox)
+    $subjects = $_POST['subjects']; // Array of subjects selected (checkboxes)
     $gender = $_POST['gender'];
     $digree = $_POST['digree'];
 
-    //convert array into string(checkbox)
+    // Convert the array of subjects into a comma-separated string
     $allData = implode(",", $subjects);
 
-    //insert query
+    // SQL query to insert the form data into the 'users' table
     $sql = "INSERT INTO users (firstName, lastName, emailAddress, mobileNumber, subjects, gender, digree) VALUES ('$fname', '$lname', '$email', '$mobile', '$allData', '$gender', '$digree') ";
 
-    //checking
+    // Execute the SQL query
     $result = mysqli_query($conn, $sql);
 
+    // Check if the query was successful
     if ($result) {
 
-        header("location: read.php"); //linked to read.php
+        header("location: read.php"); // Redirect to 'read.php' if the insert was successful
 
     } else {
 

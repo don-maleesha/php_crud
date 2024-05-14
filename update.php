@@ -1,24 +1,26 @@
 <?php
 
-//connect database
+// Include the database connection file
 include "dbconn.php";
 
+// Get the user ID from the URL parameter
 $id = $_GET['updateid'];
 
 //select query
 $sql = "SELECT * FROM users WHERE id = $id";
 $result = mysqli_query($conn, $sql);
 
-//fetch the relevant data related to $id
+// Fetch the relevant data related to the given ID
 $row = mysqli_fetch_assoc($result);
 $fname = $row['firstName'];
 $lname = $row['lastName'];
 $email = $row['emailAddress'];
 $mobile = $row['mobileNumber'];
 $gender = $row['gender'];
-$subjects = $row['subjects'];//this is normal
+$subjects = $row['subjects'];
 $digree = $row['digree'];
 
+// Check if the update form has been submitted
 if (isset($_POST['update'])){
 
     $fname = $_POST['firstName'];
@@ -26,7 +28,7 @@ if (isset($_POST['update'])){
     $email = $_POST['emailAddress'];
     $mobile = $_POST['mobileNumber'];
     $gender = $_POST['gender'];
-    $subjects = $_POST['subjects']; //this subjects should be from name="subjects[]" --> subjects
+    $subjects = $_POST['subjects'];
     $allData = implode(",", $subjects);
     $digree = $_POST['digree'];
     

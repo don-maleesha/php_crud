@@ -39,9 +39,10 @@ include "dbconn.php";
                 $sql = "SELECT * FROM users";
                 $result = mysqli_query($conn, $sql);
 
-                //fetch all the data inside the database table
+                // Fetch all rows from the result set
                 while ($row = mysqli_fetch_assoc($result)) {
 
+                    // Retrieve individual columns from the current row
                     $id = $row['id'];
                     $fname = $row['firstName'];
                     $lname = $row['lastName'];
@@ -51,6 +52,7 @@ include "dbconn.php";
                     $subjects = $row['subjects']; //added column for checkbox
                     $digree = $row['digree'];
 
+                    // Output a table row with the user data and action buttons
                     echo '<tr>
                     <th scope="row">' . $id . '</th>
                     <td>' . $fname . '</td>
@@ -61,6 +63,7 @@ include "dbconn.php";
                     <td>' . $subjects . '</td>
                     <td>' . $digree . '</td>
                     <td>
+                    <!-- Links to update and delete actions for the current user -->
                 <a href="update.php?updateid='.$id.'" class="btn btn-primary btn-sm">Update</a>
                 <a href="delete.php?deleteid='.$id.'" class="btn btn-danger btn-sm">Delete</a>
             </td>

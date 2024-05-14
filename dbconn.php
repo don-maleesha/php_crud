@@ -1,7 +1,7 @@
 <?php
 
-$servername = "localhost"; // Define the server name where the database is hosted.
-$username = "root"; // Define the username for accessing the database.
+$servername = "localhost";  // Define the server name where the database is hosted.
+$username = "root";   // Define the username for accessing the database.
 $password = ""; // Define the password for the database user.
 $dbname = "php_crud"; // Define the name of the database you want to connect to.
 
